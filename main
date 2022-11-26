@@ -1,0 +1,83 @@
+function random(max) {
+  return Math.floor(Math.random() * max);
+}
+
+function megaOleg(){
+  let model = "  /|\\  \n"+
+              "  (O)   \n"+
+              "   |    \n"+
+              "  /|\\  \n"+
+              " / | \\ \n"+
+              "   |    \n"+
+              "   |    \n"+
+              "  / \\  \n"+
+              " /   \\ \n";
+  let hp = 1000;
+  let damage = 15;
+  let speed = 20;
+  let luck = speed + random(100);
+  return [model, hp, damage, speed, luck];
+}
+class Fighters{
+  shooter(){
+    let model = "  O     \n"+
+                " /|\\|) \n"+
+                " / \\   \n";
+    let hp = 150+random(10);
+    let damage = 5+random(3);
+    let speed = 30+random(6);
+    let luck = speed + random(100);
+    return [model, hp, damage, speed, luck];
+  }
+  swordMan(){
+    let model = "   O |  \n"+
+                "()/|\\| \n"+
+                "  / \\ \n";
+    let hp = 250+random(10);;
+    let damage = 10+random(3);;
+    let speed = 10+random(6);;
+    let luck = speed + random(100);
+    return [model, hp, damage, speed, luck];
+  }
+  spermaMan(){
+    let model = "  O * \n"+
+                " /|\\| \n"+
+                " / \\ \n";
+    let hp = 200+random(10);;
+    let damage = 12+random(3);;
+    let speed = 12+random(6);;
+    let luck = speed + random(100);
+    return [model, hp, damage, speed, luck];
+  }
+}
+
+let fighters = new Fighters;
+/*for(i=0; i!=10; i++){
+  console.log(megaOleg().model);
+}*/
+let spisok = [];
+for(i=0;i!=10; i++){
+  let ran = random(3)+1;
+  switch (ran) {
+    case 1:
+      spisok.push(fighters.shooter());
+      break;
+    case 2:
+      spisok.push(fighters.swordMan());
+      break;
+    case 3:
+      spisok.push(fighters.spermaMan());
+      break;
+  }
+}
+
+
+for(i=0;i!=10; i++){
+  console.log(spisok[i][0]);
+  console.log("hp:    ",spisok[i][1]);
+  console.log("damage:",spisok[i][2]);
+  console.log("speed: ",spisok[i][3]);
+  console.log("luck:  ",spisok[i][4]);
+
+  console.log("--------------");
+}
